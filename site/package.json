@@ -1,0 +1,13 @@
+{
+  "name": "epw-site",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.0"
+  },
+  "dependencies": {
+    "@11ty/eleventy-navigation": "^1.0.4"
+  }
+}

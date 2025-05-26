@@ -1,0 +1,11 @@
+{% if eleventyNavigation.key %}
+    {% assign breadcrumbs = collections.all | eleventyNavigationBreadcrumb: eleventyNavigation.key %}
+    <div data-cprole="breadCrumbs" id="breadCrumbs" class="breadCrumbContainer" role="navigation" aria-label="Breadcrumb">
+    <ol class="semanticList breadCrumbs">
+        {% for entry in breadcrumbs %}
+        <li><a class="breadCrumb" href="{{entry.url | url }}">{{entry.title}}</a></li>
+        {% endfor %}
+        <li id="currentBCPage">{{eleventyNavigation.key}}</li>
+    </ol>
+    </div>
+{% endif %}

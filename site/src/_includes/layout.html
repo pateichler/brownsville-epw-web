@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Block search index -->
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="{{'/mycss.css' | url}}">
+    <link href="{{'/564592800.css' | url}}" rel="stylesheet" type="text/css" />	
+    <link href="{{'/-234799473.css' | url}}" rel="stylesheet" type="text/css" />
+    <link href="{{'/745732998.css' | url}}" rel="stylesheet" type="text/css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+    <script src="{{'/myjs.js' | url}}"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+
+    
+
+    <title>{{ title | default: "EPW Staging Website" }}</title>
+  </head>
+  <body class="wide withFeatureColumn cpTextResizeOn doneLoading ae-engineering-public-works-h1">
+    <!-- Template layout from https://www.brownsvilletx.gov/361/Engineering-Public-Works -->
+    <div id="outer-wrap" class="outer-wrap">
+      <div id="inner-wrap" class="inner-wrap">
+        <div id="bodyWrapper" style="padding-bottom: 0px;">
+          <div data-cprole="structuralContainer" id="bodyContainerTS">
+
+            <header data-cprole="structuralContainer" id="headerContainerTS" class="fixedTopTS" style="top: -1px;">
+              <div class="siteWrap3">
+                <div data-cprole="banner" id="bannerLogoTS" class="bannerLogoTS empty">
+                  <a id="bannerLogoTS-164" style="display: block; text-align: center;" class="bannerObject" href="/" target="_self">
+                    <img alt="City of Brownsville On the Border by the Sea and Beyond" class="bannerObject" height="163" src="https://www.brownsvilletx.gov/ImageRepository/Document?documentID=13931" width="244">
+                  </a>
+                </div>
+                <div class="siteNav mainNav" style="color: white;">
+                  <h3>WARNING:  This is a staging website.</h3>
+                  <p>Go <a href="https://www.brownsvilletx.gov/361/Engineering-Public-Works" style="color: white;">here</a> for the production live site.</p>
+                </div>
+              </div>
+            </header>
+
+            <div data-cprole="structuralContainer" id="bannerContainerTS" class="noOverflowTS">
+              <div data-cprole="banner" id="banner1"><div data-cprole="structuralContainer" id="bannerSizingTS" style="padding-top: 111px;">
+                <div data-cprole="structuralContainer" id="bannerContentTS">
+                  <div class="siteWrap"></div>
+                  </div>
+                </div>
+                <div class="bannerObject external" id="bannerDivbanner1" style="min-height: 361px; top: 0px; left: -467.571px; right: 0px; position: absolute; overflow: hidden; z-index: -999999; padding: 0px;" data-image-scale="true">
+                  <img class="bannerObject" width="1334px" style="position: absolute; left: 0px; margin: 0px; width: 2269.14px;" src="https://www.brownsvilletx.gov/ImageRepository/Document?documentID=16298" data-is-delayed="false" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div data-cprole="structuralContainer" id="mainContainerTS">
+              <div class="siteWrap">
+                <div data-cprole="structuralContainer" id="mainWrapTS" class="mainWrap" role="main" tabindex="-1">
+                  <div data-cprole="structuralContainer" id="outerContentWrapTS" class="outerContentWrap">
+                    <div data-cprole="structuralContainer" id="contentWrapTS" class="contentWrap">
+                      {% include "breadcrumb.html" %}
+                      <div data-cprole="mainContentContainer" id="moduleContent">
+                        <div id="page" class="moduleContentNew">
+                          <h1 id="versionHeadLine" class="headline">{{eleventyNavigation.key}}</h1>
+                          <div class="pageContent cpGrid cpGrid24">
+                            {{ content }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {% assign widget = "./widget.html" | isRelativeFile %}
+                    {% if "./widget.html" | isRelativeFile %}
+                    <aside data-cprole="contentContainer" id="featureColumn" class="secondaryContent" style="display: block;" role="presentation">
+                      {% include widget %}
+                    </aside>
+                    {% endif %}
+
+                  </div>
+                  {% include "nav-bar.html" %}
+                </div>
+              </div>
+            </div>
+
+            <footer data-cprole="structuralContainer" id="footerContainerTS">
+              <div class="siteWrap2">
+                <h3 style="color: white; text-align: center;">Staging website</h3>
+              </div>
+            </footer>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

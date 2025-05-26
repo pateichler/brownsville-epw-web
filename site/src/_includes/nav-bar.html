@@ -1,0 +1,15 @@
+{% assign navPages = collections.all | eleventyNavigation: eleventyNavigation.key %}
+
+{% if navPages.size == 0 %}
+    {% assign navPages = collections.all | eleventyNavigation: eleventyNavigation.parent %}
+{% endif %}
+
+<div data-cprole="structuralContainer" id="siteSidebarTS" class="siteSidebar">
+    <nav data-cprole="nav" id="secondaryNav" class="siteNav secondaryNav" aria-label="Secondary">
+    <ol id="secondaryMenusecondaryNav" data-parent="361" class="rootNavMenu accordionNav">
+        {% for entry in navPages %}
+        {% include "nav-item.html", entry: entry, root: true %}
+        {% endfor %}
+    </ol>
+    </nav>
+</div>
