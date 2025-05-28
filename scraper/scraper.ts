@@ -157,7 +157,7 @@ async function savePage(page: Page, baseURL: string) {
     
     if(el){
         replaceRelativeLinks(el, baseURL);
-        savePageText(page, el);
+        await savePageText(page, el);
     }
     else        
         throw `Page content could not be found: ${page.name}`;
