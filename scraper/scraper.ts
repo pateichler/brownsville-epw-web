@@ -9,19 +9,6 @@ const BASE_URL = "https://www.brownsvilletx.gov";
 
 const SAVE_PATH = "../site/src/pages/"
 
-// async function saveElementToFile(element: Element, filePath: string) {
-//     const text = html(element.outerHTML, { 
-//         indent_size: 2
-//     });
-
-//     await fs.writeFile(filePath, text, function(err) {
-//         if(err){
-//             console.error("Error writing to file:", err);
-//             throw "Unable to save to file!";
-//         }
-//     });
-// }
-
 async function fetchHTML(url: string) {
    try {
         const response = await fetch(url);
@@ -50,26 +37,18 @@ function replaceRelativeLinks(el: Element, baseURL: string){
     })
 }
 
-// async function saveWebpageSection(url: string, filePath: string, selector: string){
-//     const text = await fetchHTML(url);
-//     const dom = new JSDOM(text);
-//     const el = dom.window.document.querySelector(selector);
-//     if(el === null)
-//         throw `No element found with class: ${selector}`;
-
-//     saveElementToFile(el, filePath);
-// }
-
 interface Page{
     parent: string | null,
     name: string,
-    relURL: string
+    relURL: string,
+    order: number
 }
 
 function siteMapHelper(ol: Element, parentName: string | null = null): Page[]{
     const results: Page[] = [];
 
     const listItems = ol.querySelectorAll(':scope > li');
+    let order = 0;
 
     listItems.forEach(li => {
         const item = li.querySelector(':scope > .accordionNavItem');
@@ -82,7 +61,8 @@ function siteMapHelper(ol: Element, parentName: string | null = null): Page[]{
                 results.push({
                     parent: parentName,
                     name: name,
-                    relURL: url
+                    relURL: url,
+                    order: order
                 });
 
                 const nestedList = li.querySelector(':scope > ol');
@@ -90,6 +70,8 @@ function siteMapHelper(ol: Element, parentName: string | null = null): Page[]{
                     results.push(...siteMapHelper(nestedList, name));
             }
         }
+        
+        order += 1;
     });
 
     return results;
@@ -118,6 +100,7 @@ async function savePageText(page: Page, pageElement: Element){
     header.push(`   key: ${page.name}`);
     if(page.parent)
         header.push(`   parent: ${page.parent}`);
+    header.push(`   order: ${page.order}`);
     header.push("---\n");
 
     const text = header.join("\n") + html(pageElement.innerHTML, { 
@@ -180,5 +163,5 @@ async function savePages(baseURL: string, page: Page) {
     }
 }
 
-const rootPage: Page = {parent: null, name: "Engineering & Public Works", relURL: "/361/Engineering-Public-Works/"};
+const rootPage: Page = {parent: null, name: "Engineering & Public Works", relURL: "/361/Engineering-Public-Works/", order: 0};
 savePages(BASE_URL, rootPage).then(() => console.log("completed"));
