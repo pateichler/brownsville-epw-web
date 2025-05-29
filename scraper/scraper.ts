@@ -145,8 +145,9 @@ async function savePage(page: Page, baseURL: string) {
     else        
         throw `Page content could not be found: ${page.name}`;
 
+    const hasWidget = (dom.window.document.querySelector("#pageShowFeatureColumn") as HTMLInputElement).value.toLowerCase() === "true";
     const widget = dom.window.document.querySelector("#featureColumn");
-    if(widget){
+    if(hasWidget && widget){
         replaceRelativeLinks(widget, baseURL);
         saveWidget(page, widget);
     }
