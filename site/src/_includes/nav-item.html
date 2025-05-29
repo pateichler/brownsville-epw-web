@@ -1,6 +1,6 @@
 <li class="{% if root %}topMenuItem sideNavLi hasAccordionChildren{% else %}sideNavLi subMenuItem hasAccordionChildren{% endif %}">
   <div class="accordionNavItem">
-    <a href="{{ entry.url | url }}" class="{% if root %}navMainItem secondaryNavItem{% else %}navMenuItem{% endif %} cpComponent" data-type="SecondaryMainItem">{{ entry.title }}</a>
+    <a href="{% if entry.url | isRelativeURL %}{{ entry.url | url }}{% else %}{{entry.url}}{% endif %}" class="{% if root %}navMainItem secondaryNavItem{% else %}navMenuItem{% endif %} cpComponent" data-type="SecondaryMainItem">{{ entry.title }}</a>
     {% if entry.children and entry.children.size > 0 %}
         <a href="#" class="openAccordionNav accordionSecondaryNavItem" title="Expand {{entry.title}} Submenu" role="button" tabindex="0" aria-expanded="false" aria-label="{{entry.title}} submenu"></a>
     {% endif %}

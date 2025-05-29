@@ -16,6 +16,10 @@ export default function(eleventyConfig){
   eleventyConfig.addPassthroughCopy({"src/style": "/"});
   eleventyConfig.addPassthroughCopy({"src/js": "/"});
 
+  eleventyConfig.addFilter("isRelativeURL", function(url){
+    return url.startsWith("/");
+  });
+
   eleventyConfig.addFilter("isRelativeFile", function(relPath){
     const inputPath = this.page?.inputPath;
     if (!inputPath) 
