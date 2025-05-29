@@ -89,6 +89,13 @@ async function getSiteMap(baseURL: string, rootPage: Page): Promise<Page[]>{
     return pages;
 }
 
+function saveFileHandler(err: NodeJS.ErrnoException | null){
+    if(err){
+        console.error("Error writing to file:", err);
+        throw "Unable to save to file!";
+    }
+}
+
 async function savePageText(page: Page, pageElement: Element){
     const dir = path.join(SAVE_PATH, page.relURL);
     await fs.promises.mkdir(dir, {recursive: true});
@@ -107,12 +114,7 @@ async function savePageText(page: Page, pageElement: Element){
         indent_size: 2
     });
 
-    await fs.writeFile(filePath, text, function(err) {
-        if(err){
-            console.error("Error writing to file:", err);
-            throw "Unable to save to file!";
-        }
-    });
+    await fs.writeFile(filePath, text, saveFileHandler);
 }
 
 async function saveWidget(page: Page, widgetElement: Element){
@@ -121,16 +123,32 @@ async function saveWidget(page: Page, widgetElement: Element){
         indent_size: 2
     });
 
-    await fs.writeFile(filePath, text, function(err) {
-        if(err){
-            console.error("Error writing to file:", err);
-            throw "Unable to save to file!";
-        }
-    });
+    await fs.writeFile(filePath, text, saveFileHandler);
+}
+
+async function saveNavLink(page: Page){
+    const dir = path.join(SAVE_PATH, "links/", page.relURL);
+    await fs.promises.mkdir(dir, {recursive: true});
+
+    //TODO: In future use different file extension like .link
+    const filePath = path.join(dir, `${page.name}.html`);
+
+    const header: string[] = [];
+    header.push("---\neleventyNavigation:");
+    header.push(`   key: ${page.name}`);
+    header.push(`   url: ${page.relURL}`);
+    if(page.parent)
+        header.push(`   parent: ${page.parent}`);
+    header.push(`   order: ${page.order}`);
+    header.push("permalink: false");
+    header.push("---\n");
+
+    await fs.writeFile(filePath, header.join("\n"), saveFileHandler);
 }
 
 async function savePage(page: Page, baseURL: string) {
     if(!page.relURL.startsWith("/")){
+        saveNavLink(page);
         return;
     }
 
