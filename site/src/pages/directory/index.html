@@ -51,171 +51,40 @@ eleventyNavigation:
 				</tr>
 			</thead>
 			<tbody>
+				{% for person in directory %}
 				<tr>
 					<td>
 						<span>
-							<a href="/directory.aspx?EID=248">Garcia Jr., Doroteo							</a>
+							{% if person.link %}
+							<a href="https://www.brownsvilletx{{link}}">{{person.name.last}}, {{person.name.first}}</a>
+							{% else %}
+							{{person.name.last}}, {{person.name.first}}
+							{% endif %}
 						</span>
 					</td>
 					<td>
-						<span>Assistant City Engineer </span>
+						<span>{{person.title}}</span>
 					</td>
 					<td>
+						{% if person.email %}
 						<span>
-							<script type="text/javascript" language="javascript">
-								<!--
-var w = "Doroteo.Garcia";
-var x = "brownsvilletx.gov";
-var y = "Email";
-var z = document.write("<a href=\"mailto:" + w + '@' + x + '\">' + y +'</a>');
-//-->
-							</script>
-							<a href="mailto:Doroteo.Garcia@brownsvilletx.gov">Email</a>
+							<a href="mailto:{{person.email}}">Email</a>
 						</span>
+						{% endif %}
 					</td>
 					<td>
-						<span>
-						956-541-1012  ext. 6808						
-						</span>
-					</td>
-					<td style="display:none">
-						<span>
-&nbsp;						</span>
+						<span>{{person.phone}}</span>
 					</td>
 				</tr>
-				<tr class="alt">
-					<td>
-						<span>
-							<a href="/directory.aspx?EID=249">De Leon, Maribel 							</a>
-						</span>
-					</td>
-					<td>
-						<span>Project Administrator</span>
-					</td>
-					<td>
-						<span>
-							<script type="text/javascript" language="javascript">
-								<!--
-var w = "Maribel.DeLeon";
-var x = "brownsvilletx.gov";
-var y = "Email";
-var z = document.write("<a href=\"mailto:" + w + '@' + x + '\">' + y +'</a>');
-//-->
-							</script>
-							<a href="mailto:Maribel.DeLeon@brownsvilletx.gov">Email</a>
-						</span>
-					</td>
-					<td>
-						<span>
-							<a href="tel:9565476585">(956)547-6585</a>
-						</span>
-					</td>
-					<td style="display:none">
-						<span>
-&nbsp;						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>
-							<a href="/directory.aspx?EID=250">Santillan, Jose Eduardo							</a>
-						</span>
-					</td>
-					<td>
-						<span>Right of Way Acquisition Specialist</span>
-					</td>
-					<td>
-						<span>
-							<script type="text/javascript" language="javascript">
-								<!--
-var w = "Eddie.Santillan";
-var x = "brownsvilletx.gov";
-var y = "Email";
-var z = document.write("<a href=\"mailto:" + w + '@' + x + '\">' + y +'</a>');
-//-->
-							</script>
-							<a href="mailto:Eddie.Santillan@brownsvilletx.gov">Email</a>
-						</span>
-					</td>
-					<td>
-						<span>
-956-541-1012  ext. 6826						</span>
-					</td>
-					<td style="display:none">
-						<span>
-&nbsp;						</span>
-					</td>
-				</tr>
-				<tr class="alt">
-					<td>
-						<span>
-							<a href="/directory.aspx?EID=252">Alanis, Jorge G.							</a>
-						</span>
-					</td>
-					<td>
-						<span>Construction Inspector II</span>
-					</td>
-					<td>
-						<span>
-							<script type="text/javascript" language="javascript">
-								<!--
-var w = "Jorge.Alanis";
-var x = "brownsvilletx.gov";
-var y = "Email";
-var z = document.write("<a href=\"mailto:" + w + '@' + x + '\">' + y +'</a>');
-//-->
-							</script>
-							<a href="mailto:Jorge.Alanis@brownsvilletx.gov">Email</a>
-						</span>
-					</td>
-					<td>
-						<span>
-956-541-1012  ext. 6814						</span>
-					</td>
-					<td style="display:none">
-						<span>
-&nbsp;						</span>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<span>
-							<a href="/directory.aspx?EID=255">Clynes, Donald							</a>
-						</span>
-					</td>
-					<td>
-						<span>Engineering Drafting Specialist</span>
-					</td>
-					<td>
-						<span>
-							<script type="text/javascript" language="javascript">
-								<!--
-var w = "donald.clynes";
-var x = "brownsvilletx.gov";
-var y = "Email";
-var z = document.write("<a href=\"mailto:" + w + '@' + x + '\">' + y +'</a>');
-//-->
-							</script>
-							<a href="mailto:donald.clynes@brownsvilletx.gov">Email</a>
-						</span>
-					</td>
-					<td>
-						<span>
-956-541-1012  ext. 6807						</span>
-					</td>
-					<td style="display:none">
-						<span>
-&nbsp;						</span>
-					</td>
-				</tr>
+				{% endfor %}
 			</tbody>
 		</table>
 	</div>
 	<br>
-		<div style="margin-left: 1px">
-			<a href="https://www.brownsvilletx.gov/Directory.aspx" class="DirectoryLinksText" style="font-weight: bold;">Return to Staff Directory</a>
-		</div>
-		<br>
-			<br>
-				<span style="font-family: arial; font-size: 12pt; color: Black;"></span>
-			</div>
+	<div style="margin-left: 1px">
+		<a href="https://www.brownsvilletx.gov/Directory.aspx" class="DirectoryLinksText" style="font-weight: bold;">Return to Staff Directory</a>
+	</div>
+	<br>
+	<br>
+	<span style="font-family: arial; font-size: 12pt; color: Black;"></span>
+</div>

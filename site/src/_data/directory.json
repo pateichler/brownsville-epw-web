@@ -1,0 +1,90 @@
+[
+    {
+        "name": {
+            "first": "Maribel",
+            "last": "Guerrero"
+        },
+        "title": "Director",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Carlos",
+            "last": "Lastra"
+        },
+        "title": "Assistant Director/City Engineer",
+        "phone": "(956)541-1012"
+    },
+    {
+        "name": {
+            "first": "Yolanda",
+            "last": "De La Torre"
+        },
+        "title": "Assistant City Engineer",
+        "phone": "(956)541-1012"
+    },
+    {
+        "name": {
+            "first": "Hunter",
+            "last": "Lohse"
+        },
+        "title": "City Forester",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Lucio",
+            "last": "Gutierrez"
+        },
+        "title": "Traffic Manager",
+        "phone": "(956)546-1768"
+    },
+    {
+        "name": {
+            "first": "Clint",
+            "last": "Arambula"
+        },
+        "title": "Streets & Drainage Manager",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Alex",
+            "last": "Aguilar"
+        },
+        "title": "Greens Division Manager",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Esther",
+            "last": "Valle"
+        },
+        "title": "Environmental Compliance Manager",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Jose Roberto",
+            "last": "Maldonado"
+        },
+        "title": "Landfill & Storm Water Manager",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Jose",
+            "last": "Araguz"
+        },
+        "title": "Assistant Landfill Operations Manager",
+        "phone": "(956)547-6573"
+    },
+    {
+        "name": {
+            "first": "Eddie",
+            "last": "Santillan"
+        },
+        "title": "Real Estate & Right Of Way Manager",
+        "phone": "(956)541-1012"
+    }
+]
