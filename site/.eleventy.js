@@ -16,6 +16,7 @@ export default function(eleventyConfig){
   eleventyConfig.addPassthroughCopy({"src/style": "/"});
   eleventyConfig.addPassthroughCopy({"src/js": "/"});
   eleventyConfig.addPassthroughCopy({"src/attachments/*.pdf": "/attachments/"});
+  eleventyConfig.addPassthroughCopy({"src/images/*": "/images/"});
 
   eleventyConfig.addFilter("isRelativeURL", function(url){
     return url.startsWith("/");
